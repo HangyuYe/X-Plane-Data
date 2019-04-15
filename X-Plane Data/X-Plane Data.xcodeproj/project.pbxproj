@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C468F4EF2264BBCC008B629B /* getCurrentIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468F4EE2264BBCC008B629B /* getCurrentIP.swift */; };
 		C4F617CF22630C2A002D75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617CE22630C2A002D75B2 /* AppDelegate.swift */; };
 		C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617D022630C2A002D75B2 /* ViewController.swift */; };
 		C4F617D422630C2A002D75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F617D222630C2A002D75B2 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C468F4EE2264BBCC008B629B /* getCurrentIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentIP.swift; sourceTree = "<group>"; };
 		C4F617CB22630C2A002D75B2 /* X-Plane Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "X-Plane Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F617CE22630C2A002D75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4F617D022630C2A002D75B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C468F4F02264BBD2008B629B /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				C468F4EE2264BBCC008B629B /* getCurrentIP.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		C4F617C222630C29002D75B2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		C4F617CD22630C2A002D75B2 /* X-Plane Data */ = {
 			isa = PBXGroup;
 			children = (
+				C468F4F02264BBD2008B629B /* Module */,
 				C4F617CE22630C2A002D75B2 /* AppDelegate.swift */,
 				C4F617D022630C2A002D75B2 /* ViewController.swift */,
 				C4F617D222630C2A002D75B2 /* Main.storyboard */,
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */,
+				C468F4EF2264BBCC008B629B /* getCurrentIP.swift in Sources */,
 				C4F617CF22630C2A002D75B2 /* AppDelegate.swift in Sources */,
 				C4F617D722630C2A002D75B2 /* X_Plane_Data.xcdatamodeld in Sources */,
 			);
