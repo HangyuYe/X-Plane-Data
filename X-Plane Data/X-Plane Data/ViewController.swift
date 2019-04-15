@@ -11,11 +11,22 @@ import MapKit
 import CoreMotion
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var mainMapView: MKMapView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let latDelta = 0.5
+        let longDelta = 0.5
+        let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+        let centerView: CLLocation = CLLocation(latitude: 24.879, longitude: 102.833)
+        let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
+        
+        self.mainMapView.setRegion(currentRegion, animated: true)
     }
+    
+    
 
 
 }
