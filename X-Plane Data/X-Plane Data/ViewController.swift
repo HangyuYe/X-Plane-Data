@@ -20,8 +20,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
-
-        self.view.insertSubview(blurView, at: 0)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.backgroundColor = .clear
+        infoView.insertSubview(blurView, at: 0)
+        NSLayoutConstraint.activate([
+            blurView.heightAnchor.constraint(equalTo: infoView.heightAnchor),
+            blurView.widthAnchor.constraint(equalTo: infoView.widthAnchor),
+            ])
         initMKParameterP()
     }
     
