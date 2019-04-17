@@ -27,6 +27,11 @@
                                     <action selector="infoBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvg-f1-xnf"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frg-qx-hHK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -40,12 +45,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="infoView" destination="frg-qx-hHK" id="nZ3-B1-ELV"/>
                         <outlet property="mainMapView" destination="rwj-OY-B2G" id="ybn-k4-OQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="136.69950738916256"/>
+            <point key="canvasLocation" x="138.40000000000001" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>

@@ -13,9 +13,15 @@ import CoreMotion
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainMapView: MKMapView!
-
+    @IBOutlet weak var infoView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+
+        self.view.insertSubview(blurView, at: 0)
         initMKParameterP()
     }
     
@@ -30,6 +36,8 @@ class ViewController: UIViewController {
         
         self.mainMapView.setRegion(currentRegion, animated: true)
     }
+    
+    // Print current IP address on screen for connect X-Plane needs
     
     @IBAction func infoBtnPressed(_ sender: Any) {
         let address: String = getLocalIPAddress()!
