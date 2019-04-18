@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,34 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="X_Plane_Data" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rwj-OY-B2G">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-bc-hGY">
-                                <rect key="frame" x="337" y="625" width="22" height="22"/>
+                                <rect key="frame" x="337" y="736" width="22" height="22"/>
                                 <connections>
                                     <action selector="infoBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvg-f1-xnf"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frg-qx-hHK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frg-qx-hHK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8j-yv-sBe">
+                                        <rect key="frame" x="135" y="70" width="105" height="39"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W8j-yv-sBe" secondAttribute="bottom" constant="16" id="GSn-ll-CCV"/>
+                                    <constraint firstItem="W8j-yv-sBe" firstAttribute="centerX" secondItem="frg-qx-hHK" secondAttribute="centerX" id="WTN-st-rpG"/>
+                                    <constraint firstAttribute="height" constant="125" id="ps3-XR-PNV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,8 +51,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gcL-bc-hGY" secondAttribute="trailing" constant="16" id="9K2-eg-ZYr"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="F2t-bC-fcC"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F9r-qA-hhc"/>
+                            <constraint firstItem="frg-qx-hHK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GZd-xf-lUz"/>
+                            <constraint firstItem="frg-qx-hHK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="La2-4p-OHS"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SCb-Zc-JhO"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qqX-H4-1cw"/>
+                            <constraint firstItem="frg-qx-hHK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vPd-dc-cZs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

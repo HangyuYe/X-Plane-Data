@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         infoView.backgroundColor = .clear
@@ -27,10 +27,11 @@ class ViewController: UIViewController {
             blurView.heightAnchor.constraint(equalTo: infoView.heightAnchor),
             blurView.widthAnchor.constraint(equalTo: infoView.widthAnchor),
             ])
-        initMKParameterP()
+        initMKParameter()
+        initPlanPOSI()
     }
     
-    func initMKParameterP() {
+    func initMKParameter() {
         let latDelta = 0.5
         let longDelta = 0.5
         
@@ -40,6 +41,14 @@ class ViewController: UIViewController {
         let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
         
         self.mainMapView.setRegion(currentRegion, animated: true)
+    }
+    
+    func initPlanPOSI() {
+        let center = CLLocationCoordinate2DMake(24.879, 102.833)
+        let currentPOSI = MKPointAnnotation()
+        currentPOSI.coordinate = center
+        currentPOSI.title = "当前位置"
+        self.mainMapView.addAnnotation(currentPOSI)
     }
     
     // Print current IP address on screen for connect X-Plane needs
