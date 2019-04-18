@@ -6,6 +6,10 @@
 //  Copyright © 2019 SoftChain Foundation Ltd. All rights reserved.
 //
 
+import Foundation
+
+
+
 
 
 

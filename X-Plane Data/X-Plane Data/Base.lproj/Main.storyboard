@@ -60,6 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ALTLabel" destination="W8j-yv-sBe" id="Oir-0i-KSg"/>
                         <outlet property="infoView" destination="frg-qx-hHK" id="nZ3-B1-ELV"/>
                         <outlet property="mainMapView" destination="rwj-OY-B2G" id="ybn-k4-OQM"/>
                     </connections>

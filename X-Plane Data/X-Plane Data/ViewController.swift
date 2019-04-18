@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainMapView: MKMapView!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var ALTLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -27,28 +28,37 @@ class ViewController: UIViewController {
             blurView.heightAnchor.constraint(equalTo: infoView.heightAnchor),
             blurView.widthAnchor.constraint(equalTo: infoView.widthAnchor),
             ])
-        initMKParameter()
-        initPlanPOSI()
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.frashPOSI), userInfo: nil, repeats: true)
     }
     
+    
     func initMKParameter() {
-        let latDelta = 0.5
-        let longDelta = 0.5
+        let latDelta = 0.05
+        let longDelta = 0.05
         
         let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
         
-        let centerView: CLLocation = CLLocation(latitude: 24.879, longitude: 102.833)
+        
+        let centerView: CLLocation = CLLocation(latitude:Double(getPlaneLAT()) , longitude: Double(getPlaneLON()))
         let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
         
         self.mainMapView.setRegion(currentRegion, animated: true)
     }
     
     func initPlanPOSI() {
-        let center = CLLocationCoordinate2DMake(24.879, 102.833)
+        
+        let center = CLLocationCoordinate2DMake(Double(getPlaneLAT()), Double(getPlaneLON()))
         let currentPOSI = MKPointAnnotation()
         currentPOSI.coordinate = center
         currentPOSI.title = "当前位置"
         self.mainMapView.addAnnotation(currentPOSI)
+    }
+    
+    @objc func frashPOSI() {
+        initMKParameter()
+        initPlanPOSI()
+        ALTLabel.text = "\(getPlaneALT())"
     }
     
     // Print current IP address on screen for connect X-Plane needs
