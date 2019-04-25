@@ -16,25 +16,9 @@
 #define sleep(n) Sleep(n * 1000)
 #endif
 
-const char* IP = "127.0.0.1";
+const char* IP = "192.168.31.29";
 
-float getPlaneLAT()
-{
-	XPCSocket sock = openUDP(IP);
-	float tVal[1];
-	int tSize = 1;
-	if (getDREF(sock, "sim/test/test_float", tVal, &tSize) < 0)
-	{
-		return EXIT_FAILURE;
-	}
-    
-	float POSI[9] = { 0.0 };
-    getPOSI(sock, POSI, 0);
-    
-    return POSI[0];
-}
-
-float getPlaneLON()
+int connectSIM()
 {
     XPCSocket sock = openUDP(IP);
     float tVal[1];
@@ -43,7 +27,21 @@ float getPlaneLON()
     {
         return EXIT_FAILURE;
     }
+    return 0;
+}
+
+float getPlaneLAT()
+{
+    XPCSocket sock = openUDP(IP);
+    float POSI[9] = { 0.0 };
+    getPOSI(sock, POSI, 0);
     
+    return POSI[0];
+}
+
+float getPlaneLON()
+{
+    XPCSocket sock = openUDP(IP);
     float POSI[9] = { 0.0 };
     getPOSI(sock, POSI, 0);
     
@@ -53,13 +51,6 @@ float getPlaneLON()
 float getPlaneALT()
 {
     XPCSocket sock = openUDP(IP);
-    float tVal[1];
-    int tSize = 1;
-    if (getDREF(sock, "sim/test/test_float", tVal, &tSize) < 0)
-    {
-        return EXIT_FAILURE;
-    }
-    
     float POSI[9] = { 0.0 };
     getPOSI(sock, POSI, 0);
     

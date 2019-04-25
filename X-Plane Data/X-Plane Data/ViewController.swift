@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainMapView: MKMapView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var ALTLabel: UILabel!
+    @IBOutlet weak var connectBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -28,8 +29,12 @@ class ViewController: UIViewController {
             blurView.heightAnchor.constraint(equalTo: infoView.heightAnchor),
             blurView.widthAnchor.constraint(equalTo: infoView.widthAnchor),
             ])
+        connectBtn.layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        connectBtn.layer.borderWidth = 2
+        connectBtn.layer.cornerRadius = 10
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.frashPOSI), userInfo: nil, repeats: true)
+        
+        //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.frashPOSI), userInfo: nil, repeats: true)
     }
     
     
@@ -38,7 +43,6 @@ class ViewController: UIViewController {
         let longDelta = 0.05
         
         let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        
         
         let centerView: CLLocation = CLLocation(latitude:Double(getPlaneLAT()) , longitude: Double(getPlaneLON()))
         let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
@@ -55,11 +59,7 @@ class ViewController: UIViewController {
         self.mainMapView.addAnnotation(currentPOSI)
     }
     
-    @objc func frashPOSI() {
-        initMKParameter()
-        initPlanPOSI()
-        ALTLabel.text = "\(getPlaneALT())"
-    }
+
     
     // Print current IP address on screen for connect X-Plane needs
     
@@ -68,6 +68,20 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "当前的IP地址", message: address, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil)
         alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func connectBtnPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "IP Address", message: "Please enter your simulator IP", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "192.168.1.1"
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            action in
+            let enterIP = alert.textFields!.first!
+            print(enterIP.text!)
+        })
+        alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
 }

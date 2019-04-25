@@ -189,7 +189,7 @@ int getDREF(XPCSocket sock, const char* dref, float values[], int* size);
 /// \param drefs  The names of the datarefs to get.
 /// \param values A 2D array in which the values of the datarefs will be stored.
 /// \param count  The number of datarefs being requested.
-/// \param size   The number of elements in each row of values. The size of each row will be set
+/// \param sizes   The number of elements in each row of values. The size of each row will be set
 ///               to the actual number of elements copied in for that row.
 /// \returns      0 if successful, otherwise a negative value.
 int getDREFs(XPCSocket sock, const char* drefs[], float* values[], unsigned char count, int sizes[]);

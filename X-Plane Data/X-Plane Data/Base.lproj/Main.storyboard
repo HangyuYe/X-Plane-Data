@@ -30,9 +30,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frg-qx-hHK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8j-yv-sBe">
-                                        <rect key="frame" x="135" y="70" width="105" height="39"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8j-yv-sBe">
+                                        <rect key="frame" x="179.66666666666666" y="76.333333333333329" width="15.666666666666657" height="32.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Altitude:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OT-Zb-dSk">
+                                        <rect key="frame" x="8" y="44.333333333333336" width="359" height="24.000000000000007"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -40,10 +46,25 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W8j-yv-sBe" secondAttribute="bottom" constant="16" id="GSn-ll-CCV"/>
+                                    <constraint firstAttribute="trailing" secondItem="0OT-Zb-dSk" secondAttribute="trailing" constant="8" id="Pyg-fX-acC"/>
+                                    <constraint firstItem="W8j-yv-sBe" firstAttribute="top" secondItem="0OT-Zb-dSk" secondAttribute="bottom" constant="8" id="Qsd-4O-ekm"/>
                                     <constraint firstItem="W8j-yv-sBe" firstAttribute="centerX" secondItem="frg-qx-hHK" secondAttribute="centerX" id="WTN-st-rpG"/>
+                                    <constraint firstItem="0OT-Zb-dSk" firstAttribute="leading" secondItem="frg-qx-hHK" secondAttribute="leading" constant="8" id="aC3-ot-cgr"/>
                                     <constraint firstAttribute="height" constant="125" id="ps3-XR-PNV"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7n-2d-4Q5">
+                                <rect key="frame" x="137.66666666666666" y="703" width="100" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="MnW-9Z-qCA"/>
+                                    <constraint firstAttribute="height" constant="40" id="fG0-KJ-gLf"/>
+                                </constraints>
+                                <state key="normal" title="CONNECT"/>
+                                <connections>
+                                    <action selector="connectBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLA-bn-a3P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -53,7 +74,9 @@
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F9r-qA-hhc"/>
                             <constraint firstItem="frg-qx-hHK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GZd-xf-lUz"/>
                             <constraint firstItem="frg-qx-hHK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="La2-4p-OHS"/>
+                            <constraint firstItem="Y7n-2d-4Q5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mfy-6L-dPg"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SCb-Zc-JhO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y7n-2d-4Q5" secondAttribute="bottom" constant="35" id="X66-z8-O39"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qqX-H4-1cw"/>
                             <constraint firstItem="frg-qx-hHK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vPd-dc-cZs"/>
                         </constraints>
@@ -61,13 +84,14 @@
                     </view>
                     <connections>
                         <outlet property="ALTLabel" destination="W8j-yv-sBe" id="Oir-0i-KSg"/>
+                        <outlet property="connectBtn" destination="Y7n-2d-4Q5" id="DdA-kM-pMg"/>
                         <outlet property="infoView" destination="frg-qx-hHK" id="nZ3-B1-ELV"/>
                         <outlet property="mainMapView" destination="rwj-OY-B2G" id="ybn-k4-OQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="136.28185907046478"/>
+            <point key="canvasLocation" x="138.40000000000001" y="135.96059113300493"/>
         </scene>
     </scenes>
 </document>

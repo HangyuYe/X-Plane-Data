@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C42C0FF82268EA9B00E7125E /* Connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C42C0FF52268EA9B00E7125E /* Connection.cpp */; };
 		C42C0FF92268EA9B00E7125E /* xplaneConnect.c in Sources */ = {isa = PBXBuildFile; fileRef = C42C0FF72268EA9B00E7125E /* xplaneConnect.c */; };
-		C44217DF2266C70A00A41AE5 /* GetPOSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44217DE2266C70A00A41AE5 /* GetPOSI.swift */; };
 		C468F4EF2264BBCC008B629B /* getCurrentIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468F4EE2264BBCC008B629B /* getCurrentIP.swift */; };
 		C4F617CF22630C2A002D75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617CE22630C2A002D75B2 /* AppDelegate.swift */; };
 		C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617D022630C2A002D75B2 /* ViewController.swift */; };
@@ -24,7 +23,6 @@
 		C42C0FF52268EA9B00E7125E /* Connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connection.cpp; sourceTree = "<group>"; };
 		C42C0FF62268EA9B00E7125E /* xplaneConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xplaneConnect.h; sourceTree = "<group>"; };
 		C42C0FF72268EA9B00E7125E /* xplaneConnect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xplaneConnect.c; sourceTree = "<group>"; };
-		C44217DE2266C70A00A41AE5 /* GetPOSI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPOSI.swift; sourceTree = "<group>"; };
 		C468F4EE2264BBCC008B629B /* getCurrentIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentIP.swift; sourceTree = "<group>"; };
 		C4F617CB22630C2A002D75B2 /* X-Plane Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "X-Plane Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F617CE22630C2A002D75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +48,6 @@
 		C42C0FF32268EA8200E7125E /* XPlaneConnect */ = {
 			isa = PBXGroup;
 			children = (
-				C44217DE2266C70A00A41AE5 /* GetPOSI.swift */,
 				C42C0FF42268EA9A00E7125E /* X-Plane Data-Bridging-Header.h */,
 				C42C0FF52268EA9B00E7125E /* Connection.cpp */,
 				C42C0FF72268EA9B00E7125E /* xplaneConnect.c */,
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */,
-				C44217DF2266C70A00A41AE5 /* GetPOSI.swift in Sources */,
 				C468F4EF2264BBCC008B629B /* getCurrentIP.swift in Sources */,
 				C42C0FF92268EA9B00E7125E /* xplaneConnect.c in Sources */,
 				C42C0FF82268EA9B00E7125E /* Connection.cpp in Sources */,
@@ -345,6 +341,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-shorten-64-to-32",
+					"-Wno-pointer-sign",
+				);
 			};
 			name = Debug;
 		};
@@ -365,6 +365,10 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "X-Plane Data/XPlaneConnect/X-Plane Data-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wno-shorten-64-to-32",
+					"-Wno-pointer-sign",
+				);
 			};
 			name = Release;
 		};
