@@ -65,6 +65,12 @@
                                     <action selector="connectBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLA-bn-a3P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzV-Q5-v5t">
+                                <rect key="frame" x="16" y="736" width="22" height="22"/>
+                                <connections>
+                                    <action selector="backToCurrentPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LNI-Aa-blV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -75,9 +81,11 @@
                             <constraint firstItem="frg-qx-hHK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GZd-xf-lUz"/>
                             <constraint firstItem="frg-qx-hHK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="La2-4p-OHS"/>
                             <constraint firstItem="Y7n-2d-4Q5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mfy-6L-dPg"/>
+                            <constraint firstItem="mzV-Q5-v5t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Qk9-cV-J8i"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SCb-Zc-JhO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y7n-2d-4Q5" secondAttribute="bottom" constant="35" id="X66-z8-O39"/>
                             <constraint firstItem="rwj-OY-B2G" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qqX-H4-1cw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mzV-Q5-v5t" secondAttribute="bottom" constant="20" id="sMb-Ty-RME"/>
                             <constraint firstItem="frg-qx-hHK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vPd-dc-cZs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

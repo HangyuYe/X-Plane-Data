@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreMotion
 
-public var simIP: String = "192.168.1.1"
+public var simIP: String = "192.168.31.120"
 
 class ViewController: UIViewController {
     
@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Blur Effect to show ALT
         let blurEffect = UIBlurEffect(style: .dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,36 +33,38 @@ class ViewController: UIViewController {
             blurView.heightAnchor.constraint(equalTo: infoView.heightAnchor),
             blurView.widthAnchor.constraint(equalTo: infoView.widthAnchor),
             ])
+        //Custom Connect Button Layer
         connectBtn.layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         connectBtn.layer.borderWidth = 2
         connectBtn.layer.cornerRadius = 10
-        getAirPlaneLAT()
         
-        //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.frashPOSI), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.getACPosition), userInfo: nil, repeats: true)
     }
     
     
-    func initMKParameter() {
-        let latDelta = 0.05
-        let longDelta = 0.05
+    func initCenterView() {
+        let latDelta = 0.5
+        let longDelta = 0.5
         
         let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
         
-        let centerView: CLLocation = CLLocation(latitude:Double(getPlaneLAT()) , longitude: Double(getPlaneLON()))
+        let centerView: CLLocation = CLLocation(latitude:Double(posiArray[0]) , longitude: Double(posiArray[1]))
         let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
         
         self.mainMapView.setRegion(currentRegion, animated: true)
     }
     
-    func initPlanPOSI() {
+    func pinAircraftAnnotation() {
         
-        let center = CLLocationCoordinate2DMake(Double(getPlaneLAT()), Double(getPlaneLON()))
-        let currentPOSI = MKPointAnnotation()
-        currentPOSI.coordinate = center
-        currentPOSI.title = "当前位置"
-        self.mainMapView.addAnnotation(currentPOSI)
     }
     
+    @objc func getACPosition() {
+        XPConnect.getAirPlaneLAT()
+        let ALT = posiArray[2]
+        print(posiArray)
+        ALTLabel.text = "\(ALT) m"
+       
+    }
 
     
     // Print current IP address on screen for connect X-Plane needs
@@ -87,5 +91,13 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func backToCurrentPressed(_ sender: Any) {
+        initCenterView()
+    }
+    
+    
+    
+    
 }
 

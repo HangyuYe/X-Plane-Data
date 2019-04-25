@@ -8,10 +8,14 @@
 
 import Foundation
 
-func getAirPlaneLAT() {
-    let sock: XPCSocket = openUDP(simIP)
-    var values: UnsafeMutablePointer<Float>?
-    getPOSI(sock, values, 0)
-    print(values ?? 0)
-    
+public var posiArray: Array<Float> = []
+
+class XPConnect {
+    class func getAirPlaneLAT() {
+        let sock: XPCSocket = openUDP(simIP)
+        var values: [Float] = [0,0,0,0,0,0,0]
+        getPOSI(sock, &values, 0)
+        posiArray = values
+    }
+
 }

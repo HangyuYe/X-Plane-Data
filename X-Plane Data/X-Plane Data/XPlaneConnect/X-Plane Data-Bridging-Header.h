@@ -3,3 +3,4 @@
 //
 
 #import "Connection.cpp"
+#import "xplaneConnect.h"

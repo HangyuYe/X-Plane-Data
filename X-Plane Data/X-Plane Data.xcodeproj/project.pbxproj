@@ -11,6 +11,7 @@
 		C42C0FF92268EA9B00E7125E /* xplaneConnect.c in Sources */ = {isa = PBXBuildFile; fileRef = C42C0FF72268EA9B00E7125E /* xplaneConnect.c */; };
 		C468F4EF2264BBCC008B629B /* GetCurrentIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468F4EE2264BBCC008B629B /* GetCurrentIP.swift */; };
 		C4D8A4F22271BF2B00A2C4CB /* ConnectSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D8A4F12271BF2B00A2C4CB /* ConnectSim.swift */; };
+		C4E838EA22722F1100536F29 /* AircraftAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E838E922722F1100536F29 /* AircraftAnnotation.swift */; };
 		C4F617CF22630C2A002D75B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617CE22630C2A002D75B2 /* AppDelegate.swift */; };
 		C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F617D022630C2A002D75B2 /* ViewController.swift */; };
 		C4F617D422630C2A002D75B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F617D222630C2A002D75B2 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		C42C0FF72268EA9B00E7125E /* xplaneConnect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xplaneConnect.c; sourceTree = "<group>"; };
 		C468F4EE2264BBCC008B629B /* GetCurrentIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentIP.swift; sourceTree = "<group>"; };
 		C4D8A4F12271BF2B00A2C4CB /* ConnectSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSim.swift; sourceTree = "<group>"; };
+		C4E838E922722F1100536F29 /* AircraftAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftAnnotation.swift; sourceTree = "<group>"; };
 		C4F617CB22630C2A002D75B2 /* X-Plane Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "X-Plane Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F617CE22630C2A002D75B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4F617D022630C2A002D75B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		C44217E02266D30600A41AE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4E838E922722F1100536F29 /* AircraftAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				C4F617D122630C2A002D75B2 /* ViewController.swift in Sources */,
 				C468F4EF2264BBCC008B629B /* GetCurrentIP.swift in Sources */,
+				C4E838EA22722F1100536F29 /* AircraftAnnotation.swift in Sources */,
 				C4D8A4F22271BF2B00A2C4CB /* ConnectSim.swift in Sources */,
 				C42C0FF92268EA9B00E7125E /* xplaneConnect.c in Sources */,
 				C42C0FF82268EA9B00E7125E /* Connection.cpp in Sources */,

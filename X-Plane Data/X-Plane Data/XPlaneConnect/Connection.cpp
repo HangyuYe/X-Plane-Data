@@ -16,7 +16,7 @@
 #define sleep(n) Sleep(n * 1000)
 #endif
 
-const char* IP = "192.168.1.1";
+const char* IP = "127.0.0.1";
 
 int connectSIM()
 {
