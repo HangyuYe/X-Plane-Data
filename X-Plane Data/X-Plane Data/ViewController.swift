@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreMotion
 
+public var simIP: String = "192.168.1.1"
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainMapView: MKMapView!
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
         connectBtn.layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         connectBtn.layer.borderWidth = 2
         connectBtn.layer.cornerRadius = 10
-        
+        getAirPlaneLAT()
         
         //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.frashPOSI), userInfo: nil, repeats: true)
     }
@@ -79,7 +81,8 @@ class ViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             action in
             let enterIP = alert.textFields!.first!
-            print(enterIP.text!)
+            simIP = enterIP.text!
+
         })
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)

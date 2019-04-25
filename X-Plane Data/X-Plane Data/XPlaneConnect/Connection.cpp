@@ -10,13 +10,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "xplaneConnect.h"
+#import "xplaneConnect.h"
 #ifdef WIN32
 #include <Windows.h>
 #define sleep(n) Sleep(n * 1000)
 #endif
 
-const char* IP = "192.168.31.29";
+const char* IP = "192.168.1.1";
 
 int connectSIM()
 {
