@@ -9,21 +9,15 @@
 import Foundation
 import MapKit
 
-class AircraftAnnotation: NSObject, MKAnnotation{
-    var coordinate: CLLocationCoordinate2D
+class AircraftPin: NSObject, MKAnnotation {
+    dynamic var coordinate: CLLocationCoordinate2D
+    var identifier: String
     
-    init(coordinate: CLLocationCoordinate2D) {
+    init(coordinate: CLLocationCoordinate2D, identifier: String) {
         self.coordinate = coordinate
+        self.identifier = identifier
         super.init()
     }
-    
-//    class func updateAircraftPOSI(annotationPOSI annotation: AircraftAnnotation, withCoordinate coordinate: CLLocationCoordinate2D) {
-//        var location = self.coordinate
-//        location.latitude = coordinate.latitude
-//        location.longitude = coordinate.longitude
-//        UIView.animate(withDuration: 1) {
-//            self.coordinate = location
-//        }
-//    }
+
 }
 

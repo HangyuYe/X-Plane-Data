@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreMotion
 
-public var simIP: String = "192.168.31.120"
+public var simIP: String = "192.168.32.6"
 
 class ViewController: UIViewController {
     
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         connectBtn.layer.cornerRadius = 10
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.getACPosition), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.acAnnotation), userInfo: nil, repeats: true)
     }
     
     
@@ -47,23 +48,34 @@ class ViewController: UIViewController {
         let longDelta = 0.5
         
         let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        
         let centerView: CLLocation = CLLocation(latitude:Double(posiArray[0]) , longitude: Double(posiArray[1]))
         let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
-        
         self.mainMapView.setRegion(currentRegion, animated: true)
     }
     
-    func pinAircraftAnnotation() {
+    @objc func acAnnotation() {
+        XPConnect.getAirplanePOSI()
+        removePin()
+        let LAT: CLLocationDegrees = Double(posiArray[0])
+        let LON: CLLocationDegrees = Double(posiArray[1])
+        let coordinate = CLLocationCoordinate2D(latitude: LAT, longitude: LON)
+        let annotaion = AircraftPin(coordinate: coordinate, identifier: "AircraftPin")
+        mainMapView.addAnnotation(annotaion)
         
     }
     
     @objc func getACPosition() {
-        XPConnect.getAirPlaneLAT()
+        XPConnect.getAirplanePOSI()
         let ALT = posiArray[2]
         print(posiArray)
         ALTLabel.text = "\(ALT) m"
        
+    }
+    
+    func removePin() {
+        for annotation in mainMapView.annotations {
+            mainMapView.removeAnnotation(annotation)
+        }
     }
 
     

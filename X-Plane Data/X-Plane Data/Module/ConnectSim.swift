@@ -11,7 +11,7 @@ import Foundation
 public var posiArray: Array<Float> = []
 
 class XPConnect {
-    class func getAirPlaneLAT() {
+    class func getAirplanePOSI() {
         let sock: XPCSocket = openUDP(simIP)
         var values: [Float] = [0,0,0,0,0,0,0]
         getPOSI(sock, &values, 0)
