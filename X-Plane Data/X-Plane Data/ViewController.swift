@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainMapView.delegate = self
         
         //Blur Effect to show ALT
         let blurEffect = UIBlurEffect(style: .dark)
@@ -38,31 +39,21 @@ class ViewController: UIViewController {
         connectBtn.layer.borderWidth = 2
         connectBtn.layer.cornerRadius = 10
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.getACPosition), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.acAnnotation), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ViewController.getACPosition), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ViewController.addAircraftAnnotation), userInfo: nil, repeats: true)
+        
     }
     
     
     func initCenterView() {
-        let latDelta = 0.5
-        let longDelta = 0.5
         
-        let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        let centerView: CLLocation = CLLocation(latitude:Double(posiArray[0]) , longitude: Double(posiArray[1]))
-        let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView.coordinate, span: currentLocationSpan)
+        let currentLocationSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        let centerView = CLLocationCoordinate2D(latitude:Double(posiArray[0]) , longitude: Double(posiArray[1]))
+        let currentRegion: MKCoordinateRegion = MKCoordinateRegion(center: centerView, span: currentLocationSpan)
         self.mainMapView.setRegion(currentRegion, animated: true)
     }
     
-    @objc func acAnnotation() {
-        XPConnect.getAirplanePOSI()
-        removePin()
-        let LAT: CLLocationDegrees = Double(posiArray[0])
-        let LON: CLLocationDegrees = Double(posiArray[1])
-        let coordinate = CLLocationCoordinate2D(latitude: LAT, longitude: LON)
-        let annotaion = AircraftPin(coordinate: coordinate, identifier: "AircraftPin")
-        mainMapView.addAnnotation(annotaion)
-        
-    }
+    
     
     @objc func getACPosition() {
         XPConnect.getAirplanePOSI()
@@ -77,7 +68,7 @@ class ViewController: UIViewController {
             mainMapView.removeAnnotation(annotation)
         }
     }
-
+    
     
     // Print current IP address on screen for connect X-Plane needs
     
@@ -107,9 +98,30 @@ class ViewController: UIViewController {
     @IBAction func backToCurrentPressed(_ sender: Any) {
         initCenterView()
     }
-    
-    
-    
-    
+
+}
+
+extension ViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotaionView = mapView.dequeueReusableAnnotationView(withIdentifier: "planeAnnotation")
+        if annotaionView == nil {
+            annotaionView = MKAnnotationView(annotation: annotation, reuseIdentifier: "planeAnnotation")
+        } else {
+            annotaionView!.annotation = annotation
+        }
+        annotaionView!.image = #imageLiteral(resourceName: "airplane_red")
+        return annotaionView
+    }
+
+    @objc func addAircraftAnnotation() {
+        removePin()
+        XPConnect.getAirplanePOSI()
+        let LAT: CLLocationDegrees = Double(posiArray[0])
+        let LON: CLLocationDegrees = Double(posiArray[1])
+        let coordinate = CLLocationCoordinate2D(latitude:LAT, longitude:LON)
+        let annotation = AircraftPin(coordinate: coordinate, identifier: "planeAnnotation")
+        self.mainMapView.addAnnotation(annotation)
+    }
 }
 

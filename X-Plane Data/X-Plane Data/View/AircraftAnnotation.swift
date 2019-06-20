@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class AircraftPin: NSObject, MKAnnotation {
+class AircraftPin: NSObject, MKAnnotation{
     dynamic var coordinate: CLLocationCoordinate2D
     var identifier: String
     

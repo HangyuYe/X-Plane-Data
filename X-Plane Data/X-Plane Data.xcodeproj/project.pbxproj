@@ -56,9 +56,9 @@
 			children = (
 				C42C0FF42268EA9A00E7125E /* X-Plane Data-Bridging-Header.h */,
 				C42C0FF52268EA9B00E7125E /* Connection.cpp */,
+				C4EDAA7E22BB44350081C2DB /* main.cpp */,
 				C42C0FF72268EA9B00E7125E /* xplaneConnect.c */,
 				C42C0FF62268EA9B00E7125E /* xplaneConnect.h */,
-				C4EDAA7E22BB44350081C2DB /* main.cpp */,
 			);
 			path = XPlaneConnect;
 			sourceTree = "<group>";
