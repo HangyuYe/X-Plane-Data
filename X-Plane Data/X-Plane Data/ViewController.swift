@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func backToCurrentPressed(_ sender: Any) {
+    @IBAction func backToCurrentPOSIPressed(_ sender: Any) {
         initCenterView()
     }
 
